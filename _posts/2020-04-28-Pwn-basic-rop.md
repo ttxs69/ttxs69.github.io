@@ -1,5 +1,5 @@
 ---
-layout: post
+
 title: Pwn-basic-rop
 date: 2020-04-28 18:17:55
 categories: pwn

@@ -24,14 +24,114 @@ description: >- # this means to ignore newlines until "baseurl:"
   A CTFer and Coder
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: Sarace_D
+twitter:
+  username: "Sarace_D"
 github_username:  ttxs69
 
 # Build settings
-theme: minima
+theme: minimal-mistakes-jekyll
+#remote_theme: "mmistakes/minimal-mistakes@4.19.2"
 plugins:
   - jekyll-feed
+  - jekyll-include-cache
+  - jekyll-archives
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jemoji
 
+
+#Skin
+minimal_mistakes_skin: "dark" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum" "sunrise"
+#Locale
+locale: "zh-CN"
+name: "Sarace"
+url: "https://blog.huisa.win"
+
+# Outputting
+permalink: /:categories/:title/
+paginate: 5 # amount of posts to show
+paginate_path: /page:num/
+timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+
+include:
+  - _pages
+
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: true
+      share: true
+      related: true
+  # _pages
+  - scope:
+      path: "_pages"
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+
+
+#Comments
+comments:
+  provider: "disqus"
+  disqus:
+    shortname: "ttxs69"
+
+#Search
+search: true
+
+#Analytics
+analytics:
+  provider: "google-gtag"
+  google:
+    tracking_id: "UA-128583065-1"
+    anonymize_ip: false # default
+
+#Author
+author:
+  name: "Sarace"
+  avatar: "/assets/images/bio-photo.jpg"
+  bio: "CTFer and Coder" # Note: Markdown is allowed
+  location: "China"
+  links:
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/Sarace_D"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/ttxs69"
+
+#Footer
+footer:
+  links:
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/Sarace_D"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/ttxs69"
+
+
+#Achive
+category_archive:
+  type: liquid
+  path: /categories/
+tag_archive:
+  type: liquid
+  path: /tags/
+
+
+compress_html:
+  clippings: all
+  ignore:
+    envs: development  # disable compression in dev environment
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to

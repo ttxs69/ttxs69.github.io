@@ -1,5 +1,5 @@
 ---
-layout: post
+
 title: Unexpected-UTF-8-BOM
 date: 2019-07-31 14:29:43
 categories: 

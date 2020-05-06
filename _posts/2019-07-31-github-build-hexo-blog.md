@@ -1,5 +1,5 @@
 ---
-layout: post
+
 title: github搭建Hexo博客
 date: 2019-07-31 14:29:43
 categories: 
@@ -101,7 +101,7 @@ hexo new newpost #新建一个名叫newpost的文章
 ### 修改起始字段
 
 ```markdown
-layout: post
+
 title: #文章的标题
 date: #创建日期 （文件的创建日期 ）
 updated: #修改日期 （文件的修改日期）

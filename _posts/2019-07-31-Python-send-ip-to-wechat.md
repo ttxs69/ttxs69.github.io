@@ -1,5 +1,5 @@
 ---
-layout: post
+
 title: Python-send-ip-to-wechat
 date: 2019-07-31 14:29:43
 categories: 

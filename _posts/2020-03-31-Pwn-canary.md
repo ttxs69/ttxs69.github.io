@@ -1,5 +1,5 @@
 ---
-layout: post
+
 title: Pwn-canary
 date: 2020-03-31 18:17:55
 categories: pwn
