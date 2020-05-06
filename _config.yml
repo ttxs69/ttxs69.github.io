@@ -29,8 +29,8 @@ twitter:
 github_username:  ttxs69
 
 # Build settings
-theme: minimal-mistakes-jekyll
-#remote_theme: "mmistakes/minimal-mistakes@4.19.2"
+#theme: minimal-mistakes-jekyll
+remote_theme: "mmistakes/minimal-mistakes@4.19.2"
 plugins:
   - jekyll-feed
   - jekyll-include-cache
