@@ -4,6 +4,8 @@ title: git-change-gitignore
 date: 2019-07-31 14:29:43
 categories: 
  - Git
+tag: Git
+classes: wide
 ---
 # git-change-gitignore
 

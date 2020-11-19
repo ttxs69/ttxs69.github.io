@@ -4,6 +4,8 @@ title: Unexpected-UTF-8-BOM
 date: 2019-07-31 14:29:43
 categories: 
  - Python
+tag: Python
+classes: wide
 ---
 # Unexpected-UTF-8-BOM
 

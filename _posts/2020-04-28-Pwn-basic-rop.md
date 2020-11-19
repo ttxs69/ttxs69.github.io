@@ -2,7 +2,9 @@
 
 title: Pwn-basic-rop
 date: 2020-04-28 18:17:55
-categories: pwn
+categories: Pwn
+tag: Pwn
+classes: wide
 ---
 # Pwn-初级ROP
 ## 认识程序中的栈

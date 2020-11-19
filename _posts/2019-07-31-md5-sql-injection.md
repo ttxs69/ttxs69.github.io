@@ -4,6 +4,8 @@ title: md5-sql-injection
 date: 2019-07-31 14:29:43
 categories: 
  - 漏洞
+tag: Vulns
+classes: wide
 ---
 # md5-sql-injection
 

@@ -4,6 +4,8 @@ title: github搭建Hexo博客
 date: 2019-07-31 14:29:43
 categories: 
  - 教程
+tag: Tutorial
+classes: wide
 ---
 # github搭建Hexo博客
 

@@ -2,7 +2,9 @@
 
 title: Pwn-intermedia-rop
 date: 2020-04-29 18:17:55
-categories: pwn
+categories: Pwn
+tag: Pwn
+classes: wide
 ---
 
 # 中级ROP

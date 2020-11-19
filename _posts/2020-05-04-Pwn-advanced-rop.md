@@ -2,7 +2,9 @@
 
 title: Pwn-advanced-rop
 date: 2020-05-04 18:17:55
-categories: pwn
+categories: Pwn
+tag: Pwn
+classes: wide
 ---
 
 # 高级ROP学习

@@ -2,7 +2,9 @@
 
 title: Pwnable_kr_wp
 date: 2019-09-22 18:17:55
-categories: pwn
+categories: Pwn
+tag: Pwn
+classes: wide
 ---
 # Pwnable.kr Writeup
 

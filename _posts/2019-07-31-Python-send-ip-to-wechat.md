@@ -4,6 +4,8 @@ title: Python-send-ip-to-wechat
 date: 2019-07-31 14:29:43
 categories: 
  - Python
+tag: Python
+classes: wide
 ---
 # Python-send-ip-to-wechat
 
