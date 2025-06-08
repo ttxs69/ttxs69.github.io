@@ -70,8 +70,8 @@ just read through Worg's tutorial:
   ls -al ~/blog/
 #+end_src
 ** The org-templates
-- base.org
-#+srcname: base.org
+- org-templates/base.org
+#+srcname: org-templates/base.org
 #+begin_src org
   ,#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
   ,#+options: author:t broken-links:mark c:nil creator:t
