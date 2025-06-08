@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-06-08 Sun 16:01 -->
+<!-- 2025-06-08 Sun 16:38 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>blogging with org-mode</title>
@@ -202,9 +202,9 @@
  <a accesskey="H" href="../index.html"> HOME </a>
 </div><div id="content" class="content">
 <h1 class="title">blogging with org-mode</h1>
-<div id="outline-container-org6410f85" class="outline-2">
-<h2 id="org6410f85">Tutorial</h2>
-<div class="outline-text-2" id="text-org6410f85">
+<div id="outline-container-orga2740e9" class="outline-2">
+<h2 id="orga2740e9">Tutorial</h2>
+<div class="outline-text-2" id="text-orga2740e9">
 <p>
 just read through Worg's tutorial:
 </p>
@@ -213,75 +213,78 @@ just read through Worg's tutorial:
 </ul>
 </div>
 </div>
-<div id="outline-container-org1dd35fb" class="outline-2">
-<h2 id="org1dd35fb">My Config</h2>
-<div class="outline-text-2" id="text-org1dd35fb">
+<div id="outline-container-org8affa0d" class="outline-2">
+<h2 id="org8affa0d">My Config</h2>
+<div class="outline-text-2" id="text-org8affa0d">
 </div>
-<div id="outline-container-org63bd610" class="outline-3">
-<h3 id="org63bd610">Emacs config</h3>
-<div class="outline-text-3" id="text-org63bd610">
+<div id="outline-container-orgf50ddc0" class="outline-3">
+<h3 id="orgf50ddc0">Emacs config</h3>
+<div class="outline-text-3" id="text-orgf50ddc0">
 <ul class="org-ul">
 <li>blog-publish.el</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp" id="org89e1889">;; set up org-babel
-(require 'org)
+<pre class="src src-emacs-lisp" id="org9b6dab4"><span style="color: #989898;">;; </span><span style="color: #989898;">set up org-babel</span>
+(<span style="color: #b6a0ff;">require</span> '<span style="color: #00bcff;">org</span>)
 (org-babel-do-load-languages
    'org-babel-load-languages
    '((shell . t)
+     (org . t)
      (emacs-lisp . t)))
 
-(require 'ox-publish)
-;; disable postamble's default validate element
-(setq org-html-validation-link nil)
-
-(defun my-org-publish-sitemap (title list)
-  "Generate site map, as a string.
-TITLE is the title of the site map.  LIST is an internal
-representation for the files to include, as returned by
-`org-list-to-lisp'.  PROJECT is the current project."
-  (concat "#+TITLE: " title "\n"
-          ;; import the config file for sitemap
-          "#+SETUPFILE: ../org-templates/level-0.org\n\n"
+(<span style="color: #b6a0ff;">require</span> '<span style="color: #00bcff;">ox-publish</span>)
+<span style="color: #989898;">;; </span><span style="color: #989898;">disable postamble's default validate element</span>
+(<span style="color: #b6a0ff;">setq</span> org-html-validation-link nil)
+(<span style="color: #b6a0ff;">defun</span> <span style="color: #feacd0;">my-org-publish-sitemap</span> (title list)
+  <span style="color: #9ac8e0;">"Generate site map, as a string.</span>
+<span style="color: #9ac8e0;">TITLE is the title of the site map.  LIST is an internal</span>
+<span style="color: #9ac8e0;">representation for the files to include, as returned by</span>
+<span style="color: #9ac8e0;">`</span><span style="color: #00bcff;">org-list-to-lisp</span><span style="color: #9ac8e0;">'.  PROJECT is the current project."</span>
+  (concat <span style="color: #79a8ff;">"#+TITLE: "</span> title <span style="color: #79a8ff;">"\n"</span>
+          <span style="color: #989898;">;; </span><span style="color: #989898;">import the config file for sitemap</span>
+          <span style="color: #79a8ff;">"#+SETUPFILE: ../org-templates/level-0.org\n\n"</span>
           (org-list-to-org list)))
 
+<span style="color: #989898;">;; </span><span style="color: #989898;">for code highlight, make sure `htmlize` is installed</span>
+(<span style="color: #b6a0ff;">require</span> '<span style="color: #00bcff;">htmlize</span>)
 
-(setq org-publish-project-alist
+(<span style="color: #b6a0ff;">setq</span> org-publish-project-alist
       '(
-        ;; components here
-        ;; notes
-        ("org-notes"
-         :base-directory "~/blog/src/"
-         :base-extension "org"
-         :publishing-directory "~/blog/public/"
-         :recursive t
-         :publishing-function org-html-publish-to-html
-         :auto-sitemap t
-         ;; use sitemap as index.html
-         :sitemap-title "Home"
-         :sitemap-filename "index.org"
-         :sitemap-function my-org-publish-sitemap
+        <span style="color: #989898;">;; </span><span style="color: #989898;">components here</span>
+        <span style="color: #989898;">;; </span><span style="color: #989898;">notes</span>
+        (<span style="color: #79a8ff;">"org-notes"</span>
+         <span style="color: #f78fe7;">:base-directory</span> <span style="color: #79a8ff;">"~/blog/src/"</span>
+         <span style="color: #f78fe7;">:base-extension</span> <span style="color: #79a8ff;">"org"</span>
+         <span style="color: #f78fe7;">:publishing-directory</span> <span style="color: #79a8ff;">"~/blog/public/"</span>
+         <span style="color: #f78fe7;">:recursive</span> t
+         <span style="color: #f78fe7;">:publishing-function</span> org-html-publish-to-html
+         <span style="color: #f78fe7;">:htmlized-source</span> t
+         <span style="color: #f78fe7;">:auto-sitemap</span> t
+         <span style="color: #989898;">;; </span><span style="color: #989898;">use sitemap as index.html</span>
+         <span style="color: #f78fe7;">:sitemap-title</span> <span style="color: #79a8ff;">"Home"</span>
+         <span style="color: #f78fe7;">:sitemap-filename</span> <span style="color: #79a8ff;">"index.org"</span>
+         <span style="color: #f78fe7;">:sitemap-function</span> my-org-publish-sitemap
          )
-        ;; static
-        ("org-static"
-         :base-directory "~/blog/src/"
-         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
-         :publishing-directory "~/blog/public/"
-         :recursive t
-         :publishing-function org-publish-attachment
+        <span style="color: #989898;">;; </span><span style="color: #989898;">static</span>
+        (<span style="color: #79a8ff;">"org-static"</span>
+         <span style="color: #f78fe7;">:base-directory</span> <span style="color: #79a8ff;">"~/blog/src/"</span>
+         <span style="color: #f78fe7;">:base-extension</span> <span style="color: #79a8ff;">"css</span><span style="color: #feacd0;">\\</span><span style="color: #00c06f;">|</span><span style="color: #79a8ff;">js</span><span style="color: #feacd0;">\\</span><span style="color: #00c06f;">|</span><span style="color: #79a8ff;">png</span><span style="color: #feacd0;">\\</span><span style="color: #00c06f;">|</span><span style="color: #79a8ff;">jpg</span><span style="color: #feacd0;">\\</span><span style="color: #00c06f;">|</span><span style="color: #79a8ff;">gif</span><span style="color: #feacd0;">\\</span><span style="color: #00c06f;">|</span><span style="color: #79a8ff;">pdf</span><span style="color: #feacd0;">\\</span><span style="color: #00c06f;">|</span><span style="color: #79a8ff;">mp3</span><span style="color: #feacd0;">\\</span><span style="color: #00c06f;">|</span><span style="color: #79a8ff;">ogg</span><span style="color: #feacd0;">\\</span><span style="color: #00c06f;">|</span><span style="color: #79a8ff;">swf"</span>
+         <span style="color: #f78fe7;">:publishing-directory</span> <span style="color: #79a8ff;">"~/blog/public/"</span>
+         <span style="color: #f78fe7;">:recursive</span> t
+         <span style="color: #f78fe7;">:publishing-function</span> org-publish-attachment
          )
-        ;; publish
-        ("org" :components ("org-notes" "org-static"))
+        <span style="color: #989898;">;; </span><span style="color: #989898;">publish</span>
+        (<span style="color: #79a8ff;">"org"</span> <span style="color: #f78fe7;">:components</span> (<span style="color: #79a8ff;">"org-notes"</span> <span style="color: #79a8ff;">"org-static"</span>))
         ))
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org98e50e5" class="outline-3">
-<h3 id="org98e50e5">Blog layout</h3>
-<div class="outline-text-3" id="text-org98e50e5">
+<div id="outline-container-org975be86" class="outline-3">
+<h3 id="org975be86">Blog layout</h3>
+<div class="outline-text-3" id="text-org975be86">
 <div class="org-src-container">
-<pre class="src src-shell" id="org906a711">ls -al ~/blog/
+<pre class="src src-shell" id="org8bbe2ed">ls -al ~/blog/
 </pre>
 </div>
 
@@ -310,7 +313,7 @@ representation for the files to include, as returned by
 <tbody>
 <tr>
 <td class="org-left">total</td>
-<td class="org-right">0</td>
+<td class="org-right">48</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-right">&#xa0;</td>
@@ -322,13 +325,13 @@ representation for the files to include, as returned by
 
 <tr>
 <td class="org-left">drwxr-xr-x@</td>
-<td class="org-right">5</td>
+<td class="org-right">9</td>
 <td class="org-left">sarace</td>
 <td class="org-left">staff</td>
-<td class="org-right">160</td>
+<td class="org-right">288</td>
 <td class="org-left">Jun</td>
 <td class="org-right">8</td>
-<td class="org-right">15:58</td>
+<td class="org-right">16:20</td>
 <td class="org-left">.</td>
 </tr>
 
@@ -340,8 +343,56 @@ representation for the files to include, as returned by
 <td class="org-right">3520</td>
 <td class="org-left">Jun</td>
 <td class="org-right">8</td>
-<td class="org-right">15:53</td>
+<td class="org-right">16:36</td>
 <td class="org-left">..</td>
+</tr>
+
+<tr>
+<td class="org-left">drwxr-xr-x@</td>
+<td class="org-right">14</td>
+<td class="org-left">sarace</td>
+<td class="org-left">staff</td>
+<td class="org-right">448</td>
+<td class="org-left">Jun</td>
+<td class="org-right">8</td>
+<td class="org-right">16:38</td>
+<td class="org-left">.git</td>
+</tr>
+
+<tr>
+<td class="org-left">drwxr-xr-x@</td>
+<td class="org-right">3</td>
+<td class="org-left">sarace</td>
+<td class="org-left">staff</td>
+<td class="org-right">96</td>
+<td class="org-left">Jun</td>
+<td class="org-right">8</td>
+<td class="org-right">16:13</td>
+<td class="org-left">.github</td>
+</tr>
+
+<tr>
+<td class="org-left">-rw-r&#x2013;r&#x2013;@</td>
+<td class="org-right">1</td>
+<td class="org-left">sarace</td>
+<td class="org-left">staff</td>
+<td class="org-right">20139</td>
+<td class="org-left">Jun</td>
+<td class="org-right">8</td>
+<td class="org-right">16:20</td>
+<td class="org-left">LICENSE</td>
+</tr>
+
+<tr>
+<td class="org-left">-rw-r&#x2013;r&#x2013;@</td>
+<td class="org-right">1</td>
+<td class="org-left">sarace</td>
+<td class="org-left">staff</td>
+<td class="org-right">37</td>
+<td class="org-left">Jun</td>
+<td class="org-right">8</td>
+<td class="org-right">16:20</td>
+<td class="org-left">README.org</td>
 </tr>
 
 <tr>
@@ -352,7 +403,7 @@ representation for the files to include, as returned by
 <td class="org-right">160</td>
 <td class="org-left">Jun</td>
 <td class="org-right">8</td>
-<td class="org-right">13:41</td>
+<td class="org-right">16:26</td>
 <td class="org-left">org-templates</td>
 </tr>
 
@@ -364,7 +415,7 @@ representation for the files to include, as returned by
 <td class="org-right">192</td>
 <td class="org-left">Jun</td>
 <td class="org-right">8</td>
-<td class="org-right">16:01</td>
+<td class="org-right">16:38</td>
 <td class="org-left">public</td>
 </tr>
 
@@ -376,45 +427,45 @@ representation for the files to include, as returned by
 <td class="org-right">224</td>
 <td class="org-left">Jun</td>
 <td class="org-right">8</td>
-<td class="org-right">16:01</td>
+<td class="org-right">16:38</td>
 <td class="org-left">src</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<div id="outline-container-org90ec605" class="outline-3">
-<h3 id="org90ec605">The org-templates</h3>
-<div class="outline-text-3" id="text-org90ec605">
+<div id="outline-container-org49101e1" class="outline-3">
+<h3 id="org49101e1">The org-templates</h3>
+<div class="outline-text-3" id="text-org49101e1">
 <ul class="org-ul">
 <li>base.org</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-org" id="orgebab510">#+options: ':nil *:t -:t ::t &lt;:t H:3 \n:nil ^:t arch:headline
-#+options: author:t broken-links:mark c:nil creator:t
-#+options: d:(not "LOGBOOK") date:t e:t email:t expand-links:t f:t
-#+options: inline:t num:nil p:nil pri:nil prop:nil stat:t tags:t
-#+options: tasks:t tex:t timestamp:t title:t toc:nil todo:t |:t
-#+author: saraced
-#+email: sarace@huisa.win
-#+language: en
-#+select_tags: export
-#+exclude_tags: noexport
-#+cite_export:
-#+options: html-link-use-abs-url:nil html-postamble:auto
-#+options: html-scripts:nil html-style:t
-#+options: html5-fancy:t tex:t
-#+html_doctype: xhtml-strict
-#+html_container: div
-#+html_content_class: content
-#+description:
-#+keywords:
-#+html_mathjax:
-#+html_equation_reference_format: \eqref{%s}
-#+html_head_extra:
-#+subtitle:
-#+creator: &lt;a href="https://www.gnu.org/software/emacs/"&gt;Emacs&lt;/a&gt; 30.1 (&lt;a href="https://orgmode.org"&gt;Org&lt;/a&gt; mode 9.7.11)
-#+latex_header:
+<pre class="src src-org" id="orgcc61241"><span style="color: #989898;">options: ':nil *:t -:t ::t &lt;:t H:3 \n:nil ^:t arch:headline</span>
+<span style="color: #989898;">options: author:t broken-links:mark c:nil creator:t</span>
+<span style="color: #989898;">options: d:(not "LOGBOOK") date:t e:t email:t expand-links:t f:t</span>
+<span style="color: #989898;">options: inline:t num:nil p:nil pri:nil prop:nil stat:t tags:t</span>
+<span style="color: #989898;">options: tasks:t tex:t timestamp:t title:t toc:nil todo:t |:t</span>
+<span style="color: #989898;">author:</span> <span style="color: #c6daff;">saraced</span>
+<span style="color: #989898;">email:</span> <span style="color: #c6daff;">sarace@huisa.win</span>
+<span style="color: #989898;">language: en</span>
+<span style="color: #989898;">select_tags: export</span>
+<span style="color: #989898;">exclude_tags: noexport</span>
+<span style="color: #989898;">cite_export:</span>
+<span style="color: #989898;">options: html-link-use-abs-url:nil html-postamble:auto</span>
+<span style="color: #989898;">options: html-scripts:nil html-style:t</span>
+<span style="color: #989898;">options: html5-fancy:t tex:t</span>
+<span style="color: #989898;">html_doctype: xhtml-strict</span>
+<span style="color: #989898;">html_container: div</span>
+<span style="color: #989898;">html_content_class: content</span>
+<span style="color: #989898;">description:</span>
+<span style="color: #989898;">keywords:</span>
+<span style="color: #989898;">html_mathjax:</span>
+<span style="color: #989898;">html_equation_reference_format: \eqref{%s}</span>
+<span style="color: #989898;">html_head_extra:</span>
+<span style="color: #989898;">subtitle:</span>
+<span style="color: #989898;">creator: &lt;a href="<a href="https://www.gnu.org/software/emacs/">https://www.gnu.org/software/emacs/</a>"&gt;Emacs&lt;/a&gt; 30.1 (&lt;a href="<a href="https://orgmode.org">https://orgmode.org</a>"&gt;Org&lt;/a&gt; mode 9.7.11)</span>
+<span style="color: #989898;">latex_header:</span>
 </pre>
 </div>
 
@@ -422,10 +473,10 @@ representation for the files to include, as returned by
 <li>org-templates/level-0.org</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-org" id="org8c7fe20">#+setupfile: ./base.org
-#+html_link_home: index.html
-#+html_link_up: index.html
-#+html_head: &lt;link rel="stylesheet" type="text/css" href="css/stylesheet.css" /&gt;
+<pre class="src src-org" id="org9a2cfc8"><span style="color: #989898;">setupfile: ./base.org</span>
+<span style="color: #989898;">html_link_home: index.html</span>
+<span style="color: #989898;">html_link_up: index.html</span>
+<span style="color: #989898;">html_head: &lt;link rel="stylesheet" type="text/css" href="css/stylesheet.css" /&gt;</span>
 </pre>
 </div>
 
@@ -433,24 +484,24 @@ representation for the files to include, as returned by
 <li>org-templates/level-1.org</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-org" id="orga29d859">#+setupfile: ./base.org
-#+html_link_home: ../index.html
-#+html_link_up: ../index.html
-#+html_head: &lt;link rel="stylesheet" type="text/css" href="../css/stylesheet.css" /&gt;
+<pre class="src src-org" id="org04cd3e9"><span style="color: #989898;">setupfile: ./base.org</span>
+<span style="color: #989898;">html_link_home: ../index.html</span>
+<span style="color: #989898;">html_link_up: ../index.html</span>
+<span style="color: #989898;">html_head: &lt;link rel="stylesheet" type="text/css" href="../css/stylesheet.css" /&gt;</span>
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org75975e5" class="outline-3">
-<h3 id="org75975e5">Stylesheet</h3>
-<div class="outline-text-3" id="text-org75975e5">
+<div id="outline-container-orgd948fa2" class="outline-3">
+<h3 id="orgd948fa2">Stylesheet</h3>
+<div class="outline-text-3" id="text-orgd948fa2">
 <ul class="org-ul">
 <li>src/css/stylesheet.css</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-css" id="org9bba298">body {
-    margin: auto;
-    max-width: 60em;
+<pre class="src src-css" id="orgba99b52"><span style="color: #feacd0;">body</span> {
+    <span style="color: #b6a0ff;">margin</span>: auto;
+    <span style="color: #b6a0ff;">max-width</span>: 60em;
 }
 </pre>
 </div>
@@ -462,7 +513,7 @@ representation for the files to include, as returned by
 <p class="date">Date: 2025-06-08 Sun 08:00</p>
 <p class="author">Author: saraced</p>
 <p class="email">Email: <a href="mailto:sarace@huisa.win">sarace@huisa.win</a></p>
-<p class="date">Created: 2025-06-08 Sun 16:01</p>
+<p class="date">Created: 2025-06-08 Sun 16:38</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.1 (<a href="https://orgmode.org">Org</a> mode 9.7.11)</p>
 </div>
 </body>
