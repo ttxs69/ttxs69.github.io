@@ -12,7 +12,7 @@
 #+options: html-link-use-abs-url:nil html-postamble:auto
 #+options: html-scripts:nil html-style:t
 #+options: html5-fancy:t tex:t
-#+html_doctype: xhtml-strict
+#+html_doctype: html5
 #+html_container: div
 #+html_content_class: content
 #+description:

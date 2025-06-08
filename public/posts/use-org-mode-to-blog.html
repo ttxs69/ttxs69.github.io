@@ -1,10 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2025-06-08 Sun 17:01 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<!-- 2025-06-08 Sun 17:55 -->
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>blogging with org-mode</title>
 <meta name="author" content="saraced" />
@@ -201,26 +199,27 @@
  |
  <a accesskey="H" href="../index.html"> HOME </a>
 </div><div id="content" class="content">
+<header>
 <h1 class="title">blogging with org-mode</h1>
-<div id="table-of-contents" role="doc-toc">
+</header><nav id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org6842672">Tutorial</a></li>
-<li><a href="#org0069517">My Config</a>
+<li><a href="#org91ad1c1">Tutorial</a></li>
+<li><a href="#org30f868d">My Config</a>
 <ul>
-<li><a href="#orgd489fdb">Emacs config</a></li>
-<li><a href="#org588832a">Blog layout</a></li>
-<li><a href="#orgcbb7115">The org-templates</a></li>
-<li><a href="#orgdbd082a">Stylesheet</a></li>
+<li><a href="#orgb36341b">Emacs config</a></li>
+<li><a href="#org7af9beb">Blog layout</a></li>
+<li><a href="#org310b8be">The org-templates</a></li>
+<li><a href="#orgccacc5d">Stylesheet</a></li>
 </ul>
 </li>
 </ul>
 </div>
-</div>
-<div id="outline-container-org6842672" class="outline-2">
-<h2 id="org6842672">Tutorial</h2>
-<div class="outline-text-2" id="text-org6842672">
+</nav>
+<div id="outline-container-org91ad1c1" class="outline-2">
+<h2 id="org91ad1c1">Tutorial</h2>
+<div class="outline-text-2" id="text-org91ad1c1">
 <p>
 just read through Worg's tutorial:
 </p>
@@ -229,18 +228,18 @@ just read through Worg's tutorial:
 </ul>
 </div>
 </div>
-<div id="outline-container-org0069517" class="outline-2">
-<h2 id="org0069517">My Config</h2>
-<div class="outline-text-2" id="text-org0069517">
+<div id="outline-container-org30f868d" class="outline-2">
+<h2 id="org30f868d">My Config</h2>
+<div class="outline-text-2" id="text-org30f868d">
 </div>
-<div id="outline-container-orgd489fdb" class="outline-3">
-<h3 id="orgd489fdb">Emacs config</h3>
-<div class="outline-text-3" id="text-orgd489fdb">
+<div id="outline-container-orgb36341b" class="outline-3">
+<h3 id="orgb36341b">Emacs config</h3>
+<div class="outline-text-3" id="text-orgb36341b">
 <ul class="org-ul">
 <li>blog-publish.el</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp" id="orga918f3a"><span style="color: #989898;">;; </span><span style="color: #989898;">set up org-babel</span>
+<pre class="src src-emacs-lisp" id="org8a5dd87"><span style="color: #989898;">;; </span><span style="color: #989898;">set up org-babel</span>
 (<span style="color: #b6a0ff;">require</span> '<span style="color: #00bcff;">org</span>)
 (org-babel-do-load-languages
    'org-babel-load-languages
@@ -296,35 +295,35 @@ just read through Worg's tutorial:
 </div>
 </div>
 </div>
-<div id="outline-container-org588832a" class="outline-3">
-<h3 id="org588832a">Blog layout</h3>
-<div class="outline-text-3" id="text-org588832a">
+<div id="outline-container-org7af9beb" class="outline-3">
+<h3 id="org7af9beb">Blog layout</h3>
+<div class="outline-text-3" id="text-org7af9beb">
 <div class="org-src-container">
-<pre class="src src-shell" id="orgaea69fe">ls -al ~/blog/
+<pre class="src src-shell" id="org4588462">ls -al ~/blog/
 </pre>
 </div>
 
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table>
 
 
 <colgroup>
-<col  class="org-left" />
+<col  class="org-left">
 
-<col  class="org-right" />
+<col  class="org-right">
 
-<col  class="org-left" />
+<col  class="org-left">
 
-<col  class="org-left" />
+<col  class="org-left">
 
-<col  class="org-right" />
+<col  class="org-right">
 
-<col  class="org-left" />
+<col  class="org-left">
 
-<col  class="org-right" />
+<col  class="org-right">
 
-<col  class="org-right" />
+<col  class="org-right">
 
-<col  class="org-left" />
+<col  class="org-left">
 </colgroup>
 <tbody>
 <tr>
@@ -359,7 +358,7 @@ just read through Worg's tutorial:
 <td class="org-right">3520</td>
 <td class="org-left">Jun</td>
 <td class="org-right">8</td>
-<td class="org-right">17:01</td>
+<td class="org-right">17:55</td>
 <td class="org-left">..</td>
 </tr>
 
@@ -371,7 +370,7 @@ just read through Worg's tutorial:
 <td class="org-right">448</td>
 <td class="org-left">Jun</td>
 <td class="org-right">8</td>
-<td class="org-right">17:01</td>
+<td class="org-right">17:55</td>
 <td class="org-left">.git</td>
 </tr>
 
@@ -419,7 +418,7 @@ just read through Worg's tutorial:
 <td class="org-right">160</td>
 <td class="org-left">Jun</td>
 <td class="org-right">8</td>
-<td class="org-right">17:00</td>
+<td class="org-right">17:53</td>
 <td class="org-left">org-templates</td>
 </tr>
 
@@ -431,7 +430,7 @@ just read through Worg's tutorial:
 <td class="org-right">192</td>
 <td class="org-left">Jun</td>
 <td class="org-right">8</td>
-<td class="org-right">17:01</td>
+<td class="org-right">17:55</td>
 <td class="org-left">public</td>
 </tr>
 
@@ -443,21 +442,21 @@ just read through Worg's tutorial:
 <td class="org-right">224</td>
 <td class="org-left">Jun</td>
 <td class="org-right">8</td>
-<td class="org-right">17:01</td>
+<td class="org-right">17:55</td>
 <td class="org-left">src</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<div id="outline-container-orgcbb7115" class="outline-3">
-<h3 id="orgcbb7115">The org-templates</h3>
-<div class="outline-text-3" id="text-orgcbb7115">
+<div id="outline-container-org310b8be" class="outline-3">
+<h3 id="org310b8be">The org-templates</h3>
+<div class="outline-text-3" id="text-org310b8be">
 <ul class="org-ul">
 <li>org-templates/base.org</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-org" id="orgbff9dd2"><span style="color: #989898;">options: ':nil *:t -:t ::t &lt;:t H:3 \n:nil ^:t arch:headline</span>
+<pre class="src src-org" id="orge435884"><span style="color: #989898;">options: ':nil *:t -:t ::t &lt;:t H:3 \n:nil ^:t arch:headline</span>
 <span style="color: #989898;">options: author:t broken-links:mark c:nil creator:t</span>
 <span style="color: #989898;">options: d:(not "LOGBOOK") date:t e:t email:t expand-links:t f:t</span>
 <span style="color: #989898;">options: inline:t num:nil p:nil pri:nil prop:nil stat:t tags:t</span>
@@ -489,7 +488,7 @@ just read through Worg's tutorial:
 <li>org-templates/level-0.org</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-org" id="org472be95"><span style="color: #989898;">setupfile: ./base.org</span>
+<pre class="src src-org" id="orga9b6d06"><span style="color: #989898;">setupfile: ./base.org</span>
 <span style="color: #989898;">html_link_home: index.html</span>
 <span style="color: #989898;">html_link_up: index.html</span>
 <span style="color: #989898;">html_head: &lt;link rel="stylesheet" type="text/css" href="css/stylesheet.css" /&gt;</span>
@@ -500,7 +499,7 @@ just read through Worg's tutorial:
 <li>org-templates/level-1.org</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-org" id="orge7360d7"><span style="color: #989898;">setupfile: ./base.org</span>
+<pre class="src src-org" id="org7f38795"><span style="color: #989898;">setupfile: ./base.org</span>
 <span style="color: #989898;">html_link_home: ../index.html</span>
 <span style="color: #989898;">html_link_up: ../index.html</span>
 <span style="color: #989898;">html_head: &lt;link rel="stylesheet" type="text/css" href="../css/stylesheet.css" /&gt;</span>
@@ -508,14 +507,14 @@ just read through Worg's tutorial:
 </div>
 </div>
 </div>
-<div id="outline-container-orgdbd082a" class="outline-3">
-<h3 id="orgdbd082a">Stylesheet</h3>
-<div class="outline-text-3" id="text-orgdbd082a">
+<div id="outline-container-orgccacc5d" class="outline-3">
+<h3 id="orgccacc5d">Stylesheet</h3>
+<div class="outline-text-3" id="text-orgccacc5d">
 <ul class="org-ul">
 <li>src/css/stylesheet.css</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-css" id="orgc79a555"><span style="color: #feacd0;">body</span> {
+<pre class="src src-css" id="orgce4ef23"><span style="color: #feacd0;">body</span> {
     <span style="color: #b6a0ff;">margin</span>: auto;
     <span style="color: #b6a0ff;">max-width</span>: 60em;
 }
@@ -529,7 +528,7 @@ just read through Worg's tutorial:
 <p class="date">Date: 2025-06-08 Sun 08:00</p>
 <p class="author">Author: saraced</p>
 <p class="email">Email: <a href="mailto:sarace@huisa.win">sarace@huisa.win</a></p>
-<p class="date">Created: 2025-06-08 Sun 17:01</p>
+<p class="date">Created: 2025-06-08 Sun 17:55</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.1 (<a href="https://orgmode.org">Org</a> mode 9.7.11)</p>
 </div>
 </body>
