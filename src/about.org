@@ -10,3 +10,6 @@ This is a blog written using [[https://orgmode.org/org.html][org-mode]], and exp
 
 Programmer focus on mobile development. [[https://github.com/ttxs69][Github]]
 
+* Copyright
+
+[[https://creativecommons.org/licenses/by-nc-sa/4.0/][CC BY-NC-SA 4.0]]
