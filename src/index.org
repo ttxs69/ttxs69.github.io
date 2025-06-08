@@ -1,0 +1,6 @@
+#+TITLE: Home
+#+SETUPFILE: ../org-templates/level-0.org
+
+- [[file:about.org][About]]
+- posts
+  - [[file:posts/use-org-mode-to-blog.org][blogging with org-mode]]

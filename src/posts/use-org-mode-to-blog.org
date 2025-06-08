@@ -1,0 +1,126 @@
+#+title: blogging with org-mode
+#+category: emacs
+#+date: <2025-06-08 Sun 08:00>
+#+setupfile: ../../org-templates/level-1.org
+
+* Tutorial
+just read through Worg's tutorial:
+- [[https://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html][Publishing Org-mode files to HTML]]
+* My Config
+** Emacs config
+- blog-publish.el
+#+srcname: blog-publish
+#+begin_src emacs-lisp
+;; set up org-babel
+(require 'org)
+(org-babel-do-load-languages
+   'org-babel-load-languages
+   '((shell . t)
+     (emacs-lisp . t)))
+
+(require 'ox-publish)
+;; disable postamble's default validate element
+(setq org-html-validation-link nil)
+
+(defun my-org-publish-sitemap (title list)
+  "Generate site map, as a string.
+TITLE is the title of the site map.  LIST is an internal
+representation for the files to include, as returned by
+`org-list-to-lisp'.  PROJECT is the current project."
+  (concat "#+TITLE: " title "\n"
+	  ;; import the config file for sitemap
+	  "#+SETUPFILE: ../org-templates/level-0.org\n\n"
+	  (org-list-to-org list)))
+
+
+(setq org-publish-project-alist
+      '(
+	;; components here
+	;; notes
+	("org-notes"
+	 :base-directory "~/blog/src/"
+	 :base-extension "org"
+	 :publishing-directory "~/blog/public/"
+	 :recursive t
+	 :publishing-function org-html-publish-to-html
+	 :auto-sitemap t
+	 ;; use sitemap as index.html
+	 :sitemap-title "Home"
+	 :sitemap-filename "index.org"
+	 :sitemap-function my-org-publish-sitemap
+	 )
+	;; static
+	("org-static"
+	 :base-directory "~/blog/src/"
+	 :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
+	 :publishing-directory "~/blog/public/"
+	 :recursive t
+	 :publishing-function org-publish-attachment
+	 )
+	;; publish
+	("org" :components ("org-notes" "org-static"))
+	))
+#+end_src
+** Blog layout
+#+srcname: show_layout
+#+begin_src shell :exports both
+  ls -al ~/blog/
+#+end_src
+** The org-templates
+- base.org
+#+srcname: base.org
+#+begin_src org
+  ,#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+  ,#+options: author:t broken-links:mark c:nil creator:t
+  ,#+options: d:(not "LOGBOOK") date:t e:t email:t expand-links:t f:t
+  ,#+options: inline:t num:nil p:nil pri:nil prop:nil stat:t tags:t
+  ,#+options: tasks:t tex:t timestamp:t title:t toc:nil todo:t |:t
+  ,#+author: saraced
+  ,#+email: sarace@huisa.win
+  ,#+language: en
+  ,#+select_tags: export
+  ,#+exclude_tags: noexport
+  ,#+cite_export:
+  ,#+options: html-link-use-abs-url:nil html-postamble:auto
+  ,#+options: html-scripts:nil html-style:t
+  ,#+options: html5-fancy:t tex:t
+  ,#+html_doctype: xhtml-strict
+  ,#+html_container: div
+  ,#+html_content_class: content
+  ,#+description:
+  ,#+keywords:
+  ,#+html_mathjax:
+  ,#+html_equation_reference_format: \eqref{%s}
+  ,#+html_head_extra:
+  ,#+subtitle:
+  ,#+creator: <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.1 (<a href="https://orgmode.org">Org</a> mode 9.7.11)
+  ,#+latex_header:
+#+end_src
+
+- org-templates/level-0.org
+#+srcname: org-templates/level-0.org
+#+begin_src org
+  ,#+setupfile: ./base.org
+  ,#+html_link_home: index.html
+  ,#+html_link_up: index.html
+  ,#+html_head: <link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
+#+end_src
+
+- org-templates/level-1.org
+#+srcname: org-templates/level-1.org
+#+begin_src org
+  ,#+setupfile: ./base.org
+  ,#+html_link_home: ../index.html
+  ,#+html_link_up: ../index.html
+  ,#+html_head: <link rel="stylesheet" type="text/css" href="../css/stylesheet.css" />
+#+end_src
+
+** Stylesheet
+- src/css/stylesheet.css
+#+srcname: src/css/stylesheet.css
+#+begin_src css
+  body {
+      margin: auto;
+      max-width: 60em;
+  }
+#+end_src

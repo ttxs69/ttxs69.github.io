@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-06-08 Sun 16:01 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>blogging with org-mode</title>
+<meta name="author" content="saraced" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="../css/stylesheet.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="../index.html"> UP </a>
+ |
+ <a accesskey="H" href="../index.html"> HOME </a>
+</div><div id="content" class="content">
+<h1 class="title">blogging with org-mode</h1>
+<div id="outline-container-org6410f85" class="outline-2">
+<h2 id="org6410f85">Tutorial</h2>
+<div class="outline-text-2" id="text-org6410f85">
+<p>
+just read through Worg's tutorial:
+</p>
+<ul class="org-ul">
+<li><a href="https://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html">Publishing Org-mode files to HTML</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1dd35fb" class="outline-2">
+<h2 id="org1dd35fb">My Config</h2>
+<div class="outline-text-2" id="text-org1dd35fb">
+</div>
+<div id="outline-container-org63bd610" class="outline-3">
+<h3 id="org63bd610">Emacs config</h3>
+<div class="outline-text-3" id="text-org63bd610">
+<ul class="org-ul">
+<li>blog-publish.el</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp" id="org89e1889">;; set up org-babel
+(require 'org)
+(org-babel-do-load-languages
+   'org-babel-load-languages
+   '((shell . t)
+     (emacs-lisp . t)))
+
+(require 'ox-publish)
+;; disable postamble's default validate element
+(setq org-html-validation-link nil)
+
+(defun my-org-publish-sitemap (title list)
+  "Generate site map, as a string.
+TITLE is the title of the site map.  LIST is an internal
+representation for the files to include, as returned by
+`org-list-to-lisp'.  PROJECT is the current project."
+  (concat "#+TITLE: " title "\n"
+          ;; import the config file for sitemap
+          "#+SETUPFILE: ../org-templates/level-0.org\n\n"
+          (org-list-to-org list)))
+
+
+(setq org-publish-project-alist
+      '(
+        ;; components here
+        ;; notes
+        ("org-notes"
+         :base-directory "~/blog/src/"
+         :base-extension "org"
+         :publishing-directory "~/blog/public/"
+         :recursive t
+         :publishing-function org-html-publish-to-html
+         :auto-sitemap t
+         ;; use sitemap as index.html
+         :sitemap-title "Home"
+         :sitemap-filename "index.org"
+         :sitemap-function my-org-publish-sitemap
+         )
+        ;; static
+        ("org-static"
+         :base-directory "~/blog/src/"
+         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
+         :publishing-directory "~/blog/public/"
+         :recursive t
+         :publishing-function org-publish-attachment
+         )
+        ;; publish
+        ("org" :components ("org-notes" "org-static"))
+        ))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org98e50e5" class="outline-3">
+<h3 id="org98e50e5">Blog layout</h3>
+<div class="outline-text-3" id="text-org98e50e5">
+<div class="org-src-container">
+<pre class="src src-shell" id="org906a711">ls -al ~/blog/
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">total</td>
+<td class="org-right">0</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">drwxr-xr-x@</td>
+<td class="org-right">5</td>
+<td class="org-left">sarace</td>
+<td class="org-left">staff</td>
+<td class="org-right">160</td>
+<td class="org-left">Jun</td>
+<td class="org-right">8</td>
+<td class="org-right">15:58</td>
+<td class="org-left">.</td>
+</tr>
+
+<tr>
+<td class="org-left">drwxr-x&#x2014;+</td>
+<td class="org-right">110</td>
+<td class="org-left">sarace</td>
+<td class="org-left">staff</td>
+<td class="org-right">3520</td>
+<td class="org-left">Jun</td>
+<td class="org-right">8</td>
+<td class="org-right">15:53</td>
+<td class="org-left">..</td>
+</tr>
+
+<tr>
+<td class="org-left">drwxr-xr-x@</td>
+<td class="org-right">5</td>
+<td class="org-left">sarace</td>
+<td class="org-left">staff</td>
+<td class="org-right">160</td>
+<td class="org-left">Jun</td>
+<td class="org-right">8</td>
+<td class="org-right">13:41</td>
+<td class="org-left">org-templates</td>
+</tr>
+
+<tr>
+<td class="org-left">drwxr-xr-x@</td>
+<td class="org-right">6</td>
+<td class="org-left">sarace</td>
+<td class="org-left">staff</td>
+<td class="org-right">192</td>
+<td class="org-left">Jun</td>
+<td class="org-right">8</td>
+<td class="org-right">16:01</td>
+<td class="org-left">public</td>
+</tr>
+
+<tr>
+<td class="org-left">drwxr-xr-x@</td>
+<td class="org-right">7</td>
+<td class="org-left">sarace</td>
+<td class="org-left">staff</td>
+<td class="org-right">224</td>
+<td class="org-left">Jun</td>
+<td class="org-right">8</td>
+<td class="org-right">16:01</td>
+<td class="org-left">src</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org90ec605" class="outline-3">
+<h3 id="org90ec605">The org-templates</h3>
+<div class="outline-text-3" id="text-org90ec605">
+<ul class="org-ul">
+<li>base.org</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-org" id="orgebab510">#+options: ':nil *:t -:t ::t &lt;:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:mark c:nil creator:t
+#+options: d:(not "LOGBOOK") date:t e:t email:t expand-links:t f:t
+#+options: inline:t num:nil p:nil pri:nil prop:nil stat:t tags:t
+#+options: tasks:t tex:t timestamp:t title:t toc:nil todo:t |:t
+#+author: saraced
+#+email: sarace@huisa.win
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+cite_export:
+#+options: html-link-use-abs-url:nil html-postamble:auto
+#+options: html-scripts:nil html-style:t
+#+options: html5-fancy:t tex:t
+#+html_doctype: xhtml-strict
+#+html_container: div
+#+html_content_class: content
+#+description:
+#+keywords:
+#+html_mathjax:
+#+html_equation_reference_format: \eqref{%s}
+#+html_head_extra:
+#+subtitle:
+#+creator: &lt;a href="https://www.gnu.org/software/emacs/"&gt;Emacs&lt;/a&gt; 30.1 (&lt;a href="https://orgmode.org"&gt;Org&lt;/a&gt; mode 9.7.11)
+#+latex_header:
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>org-templates/level-0.org</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-org" id="org8c7fe20">#+setupfile: ./base.org
+#+html_link_home: index.html
+#+html_link_up: index.html
+#+html_head: &lt;link rel="stylesheet" type="text/css" href="css/stylesheet.css" /&gt;
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>org-templates/level-1.org</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-org" id="orga29d859">#+setupfile: ./base.org
+#+html_link_home: ../index.html
+#+html_link_up: ../index.html
+#+html_head: &lt;link rel="stylesheet" type="text/css" href="../css/stylesheet.css" /&gt;
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org75975e5" class="outline-3">
+<h3 id="org75975e5">Stylesheet</h3>
+<div class="outline-text-3" id="text-org75975e5">
+<ul class="org-ul">
+<li>src/css/stylesheet.css</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-css" id="org9bba298">body {
+    margin: auto;
+    max-width: 60em;
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2025-06-08 Sun 08:00</p>
+<p class="author">Author: saraced</p>
+<p class="email">Email: <a href="mailto:sarace@huisa.win">sarace@huisa.win</a></p>
+<p class="date">Created: 2025-06-08 Sun 16:01</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.1 (<a href="https://orgmode.org">Org</a> mode 9.7.11)</p>
+</div>
+</body>
+</html>

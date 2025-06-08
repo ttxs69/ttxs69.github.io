@@ -1,0 +1,12 @@
+#+title: About
+#+date: <2025-06-08 Sun 08:00>
+#+setupfile: ../org-templates/level-0.org
+
+* This Blog
+
+This is a blog written using [[https://orgmode.org/org.html][org-mode]], and exported by [[https://orgmode.org/manual/Publishing.html][org-publish]].
+
+* Me
+
+Programmer focus on mobile development. [[https://github.com/ttxs69][Github]]
+
