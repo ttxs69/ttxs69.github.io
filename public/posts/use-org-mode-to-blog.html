@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2025-06-08 Sun 17:55 -->
+<!-- 2025-08-10 Sun 11:21 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>blogging with org-mode</title>
@@ -205,21 +205,21 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org91ad1c1">Tutorial</a></li>
-<li><a href="#org30f868d">My Config</a>
+<li><a href="#org40120f1">Tutorial</a></li>
+<li><a href="#orgbb32493">My Config</a>
 <ul>
-<li><a href="#orgb36341b">Emacs config</a></li>
-<li><a href="#org7af9beb">Blog layout</a></li>
-<li><a href="#org310b8be">The org-templates</a></li>
-<li><a href="#orgccacc5d">Stylesheet</a></li>
+<li><a href="#orgc607b33">Emacs config</a></li>
+<li><a href="#org99e1426">Blog layout</a></li>
+<li><a href="#org74fd703">The org-templates</a></li>
+<li><a href="#org5761249">Stylesheet</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </nav>
-<div id="outline-container-org91ad1c1" class="outline-2">
-<h2 id="org91ad1c1">Tutorial</h2>
-<div class="outline-text-2" id="text-org91ad1c1">
+<div id="outline-container-org40120f1" class="outline-2">
+<h2 id="org40120f1">Tutorial</h2>
+<div class="outline-text-2" id="text-org40120f1">
 <p>
 just read through Worg's tutorial:
 </p>
@@ -228,19 +228,19 @@ just read through Worg's tutorial:
 </ul>
 </div>
 </div>
-<div id="outline-container-org30f868d" class="outline-2">
-<h2 id="org30f868d">My Config</h2>
-<div class="outline-text-2" id="text-org30f868d">
+<div id="outline-container-orgbb32493" class="outline-2">
+<h2 id="orgbb32493">My Config</h2>
+<div class="outline-text-2" id="text-orgbb32493">
 </div>
-<div id="outline-container-orgb36341b" class="outline-3">
-<h3 id="orgb36341b">Emacs config</h3>
-<div class="outline-text-3" id="text-orgb36341b">
+<div id="outline-container-orgc607b33" class="outline-3">
+<h3 id="orgc607b33">Emacs config</h3>
+<div class="outline-text-3" id="text-orgc607b33">
 <ul class="org-ul">
 <li>blog-publish.el</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp" id="org8a5dd87"><span style="color: #989898;">;; </span><span style="color: #989898;">set up org-babel</span>
-(<span style="color: #b6a0ff;">require</span> '<span style="color: #00bcff;">org</span>)
+<pre class="src src-emacs-lisp" id="org2be8e1b"><span style="color: #989898;">;; </span><span style="color: #989898;">set up org-babel
+</span>(<span style="color: #b6a0ff;">require</span> '<span style="color: #00bcff;">org</span>)
 (org-babel-do-load-languages
    'org-babel-load-languages
    '((shell . t)
@@ -248,26 +248,26 @@ just read through Worg's tutorial:
      (emacs-lisp . t)))
 
 (<span style="color: #b6a0ff;">require</span> '<span style="color: #00bcff;">ox-publish</span>)
-<span style="color: #989898;">;; </span><span style="color: #989898;">disable postamble's default validate element</span>
-(<span style="color: #b6a0ff;">setq</span> org-html-validation-link nil)
+<span style="color: #989898;">;; </span><span style="color: #989898;">disable postamble's default validate element
+</span>(<span style="color: #b6a0ff;">setq</span> org-html-validation-link nil)
 (<span style="color: #b6a0ff;">defun</span> <span style="color: #feacd0;">my-org-publish-sitemap</span> (title list)
-  <span style="color: #9ac8e0;">"Generate site map, as a string.</span>
-<span style="color: #9ac8e0;">TITLE is the title of the site map.  LIST is an internal</span>
-<span style="color: #9ac8e0;">representation for the files to include, as returned by</span>
-<span style="color: #9ac8e0;">`</span><span style="color: #00bcff;">org-list-to-lisp</span><span style="color: #9ac8e0;">'.  PROJECT is the current project."</span>
+  <span style="color: #9ac8e0;">"Generate site map, as a string.
+TITLE is the title of the site map.  LIST is an internal
+representation for the files to include, as returned by
+`</span><span style="color: #00bcff;">org-list-to-lisp</span><span style="color: #9ac8e0;">'.  PROJECT is the current project."</span>
   (concat <span style="color: #79a8ff;">"#+TITLE: "</span> title <span style="color: #79a8ff;">"\n"</span>
-          <span style="color: #989898;">;; </span><span style="color: #989898;">import the config file for sitemap</span>
-          <span style="color: #79a8ff;">"#+SETUPFILE: ../org-templates/level-0.org\n\n"</span>
+          <span style="color: #989898;">;; </span><span style="color: #989898;">import the config file for sitemap
+</span>          <span style="color: #79a8ff;">"#+SETUPFILE: ../org-templates/level-0.org\n\n"</span>
           (org-list-to-org list)))
 
-<span style="color: #989898;">;; </span><span style="color: #989898;">for code highlight, make sure `htmlize` is installed</span>
-(<span style="color: #b6a0ff;">require</span> '<span style="color: #00bcff;">htmlize</span>)
+<span style="color: #989898;">;; </span><span style="color: #989898;">for code highlight, make sure `htmlize` is installed
+</span>(<span style="color: #b6a0ff;">require</span> '<span style="color: #00bcff;">htmlize</span>)
 
 (<span style="color: #b6a0ff;">setq</span> org-publish-project-alist
       '(
-        <span style="color: #989898;">;; </span><span style="color: #989898;">components here</span>
-        <span style="color: #989898;">;; </span><span style="color: #989898;">notes</span>
-        (<span style="color: #79a8ff;">"org-notes"</span>
+        <span style="color: #989898;">;; </span><span style="color: #989898;">components here
+</span>        <span style="color: #989898;">;; </span><span style="color: #989898;">notes
+</span>        (<span style="color: #79a8ff;">"org-notes"</span>
          <span style="color: #f78fe7;">:base-directory</span> <span style="color: #79a8ff;">"~/blog/src/"</span>
          <span style="color: #f78fe7;">:base-extension</span> <span style="color: #79a8ff;">"org"</span>
          <span style="color: #f78fe7;">:publishing-directory</span> <span style="color: #79a8ff;">"~/blog/public/"</span>
@@ -275,31 +275,31 @@ just read through Worg's tutorial:
          <span style="color: #f78fe7;">:publishing-function</span> org-html-publish-to-html
          <span style="color: #f78fe7;">:htmlized-source</span> t
          <span style="color: #f78fe7;">:auto-sitemap</span> t
-         <span style="color: #989898;">;; </span><span style="color: #989898;">use sitemap as index.html</span>
-         <span style="color: #f78fe7;">:sitemap-title</span> <span style="color: #79a8ff;">"Home"</span>
+         <span style="color: #989898;">;; </span><span style="color: #989898;">use sitemap as index.html
+</span>         <span style="color: #f78fe7;">:sitemap-title</span> <span style="color: #79a8ff;">"Home"</span>
          <span style="color: #f78fe7;">:sitemap-filename</span> <span style="color: #79a8ff;">"index.org"</span>
          <span style="color: #f78fe7;">:sitemap-function</span> my-org-publish-sitemap
          )
-        <span style="color: #989898;">;; </span><span style="color: #989898;">static</span>
-        (<span style="color: #79a8ff;">"org-static"</span>
+        <span style="color: #989898;">;; </span><span style="color: #989898;">static
+</span>        (<span style="color: #79a8ff;">"org-static"</span>
          <span style="color: #f78fe7;">:base-directory</span> <span style="color: #79a8ff;">"~/blog/src/"</span>
          <span style="color: #f78fe7;">:base-extension</span> <span style="color: #79a8ff;">"css</span><span style="color: #feacd0;">\\</span><span style="color: #00c06f;">|</span><span style="color: #79a8ff;">js</span><span style="color: #feacd0;">\\</span><span style="color: #00c06f;">|</span><span style="color: #79a8ff;">png</span><span style="color: #feacd0;">\\</span><span style="color: #00c06f;">|</span><span style="color: #79a8ff;">jpg</span><span style="color: #feacd0;">\\</span><span style="color: #00c06f;">|</span><span style="color: #79a8ff;">gif</span><span style="color: #feacd0;">\\</span><span style="color: #00c06f;">|</span><span style="color: #79a8ff;">pdf</span><span style="color: #feacd0;">\\</span><span style="color: #00c06f;">|</span><span style="color: #79a8ff;">mp3</span><span style="color: #feacd0;">\\</span><span style="color: #00c06f;">|</span><span style="color: #79a8ff;">ogg</span><span style="color: #feacd0;">\\</span><span style="color: #00c06f;">|</span><span style="color: #79a8ff;">swf"</span>
          <span style="color: #f78fe7;">:publishing-directory</span> <span style="color: #79a8ff;">"~/blog/public/"</span>
          <span style="color: #f78fe7;">:recursive</span> t
          <span style="color: #f78fe7;">:publishing-function</span> org-publish-attachment
          )
-        <span style="color: #989898;">;; </span><span style="color: #989898;">publish</span>
-        (<span style="color: #79a8ff;">"org"</span> <span style="color: #f78fe7;">:components</span> (<span style="color: #79a8ff;">"org-notes"</span> <span style="color: #79a8ff;">"org-static"</span>))
+        <span style="color: #989898;">;; </span><span style="color: #989898;">publish
+</span>        (<span style="color: #79a8ff;">"org"</span> <span style="color: #f78fe7;">:components</span> (<span style="color: #79a8ff;">"org-notes"</span> <span style="color: #79a8ff;">"org-static"</span>))
         ))
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org7af9beb" class="outline-3">
-<h3 id="org7af9beb">Blog layout</h3>
-<div class="outline-text-3" id="text-org7af9beb">
+<div id="outline-container-org99e1426" class="outline-3">
+<h3 id="org99e1426">Blog layout</h3>
+<div class="outline-text-3" id="text-org99e1426">
 <div class="org-src-container">
-<pre class="src src-shell" id="org4588462">ls -al ~/blog/
+<pre class="src src-shell" id="org627fb11">ls -al ~/blog/
 </pre>
 </div>
 
@@ -352,13 +352,13 @@ just read through Worg's tutorial:
 
 <tr>
 <td class="org-left">drwxr-x&#x2014;+</td>
-<td class="org-right">110</td>
+<td class="org-right">119</td>
 <td class="org-left">sarace</td>
 <td class="org-left">staff</td>
-<td class="org-right">3520</td>
-<td class="org-left">Jun</td>
-<td class="org-right">8</td>
-<td class="org-right">17:55</td>
+<td class="org-right">3808</td>
+<td class="org-left">Aug</td>
+<td class="org-right">10</td>
+<td class="org-right">11:21</td>
 <td class="org-left">..</td>
 </tr>
 
@@ -368,9 +368,9 @@ just read through Worg's tutorial:
 <td class="org-left">sarace</td>
 <td class="org-left">staff</td>
 <td class="org-right">448</td>
-<td class="org-left">Jun</td>
-<td class="org-right">8</td>
-<td class="org-right">17:55</td>
+<td class="org-left">Aug</td>
+<td class="org-right">10</td>
+<td class="org-right">11:21</td>
 <td class="org-left">.git</td>
 </tr>
 
@@ -428,9 +428,9 @@ just read through Worg's tutorial:
 <td class="org-left">sarace</td>
 <td class="org-left">staff</td>
 <td class="org-right">192</td>
-<td class="org-left">Jun</td>
-<td class="org-right">8</td>
-<td class="org-right">17:55</td>
+<td class="org-left">Aug</td>
+<td class="org-right">10</td>
+<td class="org-right">11:21</td>
 <td class="org-left">public</td>
 </tr>
 
@@ -440,47 +440,47 @@ just read through Worg's tutorial:
 <td class="org-left">sarace</td>
 <td class="org-left">staff</td>
 <td class="org-right">224</td>
-<td class="org-left">Jun</td>
-<td class="org-right">8</td>
-<td class="org-right">17:55</td>
+<td class="org-left">Aug</td>
+<td class="org-right">10</td>
+<td class="org-right">11:21</td>
 <td class="org-left">src</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<div id="outline-container-org310b8be" class="outline-3">
-<h3 id="org310b8be">The org-templates</h3>
-<div class="outline-text-3" id="text-org310b8be">
+<div id="outline-container-org74fd703" class="outline-3">
+<h3 id="org74fd703">The org-templates</h3>
+<div class="outline-text-3" id="text-org74fd703">
 <ul class="org-ul">
 <li>org-templates/base.org</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-org" id="orge435884"><span style="color: #989898;">options: ':nil *:t -:t ::t &lt;:t H:3 \n:nil ^:t arch:headline</span>
-<span style="color: #989898;">options: author:t broken-links:mark c:nil creator:t</span>
-<span style="color: #989898;">options: d:(not "LOGBOOK") date:t e:t email:t expand-links:t f:t</span>
-<span style="color: #989898;">options: inline:t num:nil p:nil pri:nil prop:nil stat:t tags:t</span>
-<span style="color: #989898;">options: tasks:t tex:t timestamp:t title:t toc:nil todo:t |:t</span>
-<span style="color: #989898;">author:</span> <span style="color: #c6daff;">saraced</span>
-<span style="color: #989898;">email:</span> <span style="color: #c6daff;">sarace@huisa.win</span>
-<span style="color: #989898;">language: en</span>
-<span style="color: #989898;">select_tags: export</span>
-<span style="color: #989898;">exclude_tags: noexport</span>
-<span style="color: #989898;">cite_export:</span>
-<span style="color: #989898;">options: html-link-use-abs-url:nil html-postamble:auto</span>
-<span style="color: #989898;">options: html-scripts:nil html-style:t</span>
-<span style="color: #989898;">options: html5-fancy:t tex:t</span>
-<span style="color: #989898;">html_doctype: xhtml-strict</span>
-<span style="color: #989898;">html_container: div</span>
-<span style="color: #989898;">html_content_class: content</span>
-<span style="color: #989898;">description:</span>
-<span style="color: #989898;">keywords:</span>
-<span style="color: #989898;">html_mathjax:</span>
-<span style="color: #989898;">html_equation_reference_format: \eqref{%s}</span>
-<span style="color: #989898;">html_head_extra:</span>
-<span style="color: #989898;">subtitle:</span>
-<span style="color: #989898;">creator: &lt;a href="<a href="https://www.gnu.org/software/emacs/">https://www.gnu.org/software/emacs/</a>"&gt;Emacs&lt;/a&gt; 30.1 (&lt;a href="<a href="https://orgmode.org">https://orgmode.org</a>"&gt;Org&lt;/a&gt; mode 9.7.11)</span>
-<span style="color: #989898;">latex_header:</span>
+<pre class="src src-org" id="org1cb151b"><span style="color: #989898;">options: ':nil *:t -:t ::t &lt;:t H:3 \n:nil ^:t arch:headline</span><span style="color: #b6a0ff;">
+</span><span style="color: #989898;">options: author:t broken-links:mark c:nil creator:t</span><span style="color: #b6a0ff;">
+</span><span style="color: #989898;">options: d:(not "LOGBOOK") date:t e:t email:t expand-links:t f:t</span><span style="color: #b6a0ff;">
+</span><span style="color: #989898;">options: inline:t num:nil p:nil pri:nil prop:nil stat:t tags:t</span><span style="color: #b6a0ff;">
+</span><span style="color: #989898;">options: tasks:t tex:t timestamp:t title:t toc:nil todo:t |:t</span><span style="color: #b6a0ff;">
+</span><span style="color: #989898;">author:</span> <span style="color: #c6daff;">saraced
+</span><span style="color: #989898;">email:</span> <span style="color: #c6daff;">sarace@huisa.win
+</span><span style="color: #989898;">language: en</span><span style="color: #b6a0ff;">
+</span><span style="color: #989898;">select_tags: export</span><span style="color: #b6a0ff;">
+</span><span style="color: #989898;">exclude_tags: noexport</span><span style="color: #b6a0ff;">
+</span><span style="color: #989898;">cite_export:</span><span style="color: #b6a0ff;">
+</span><span style="color: #989898;">options: html-link-use-abs-url:nil html-postamble:auto</span><span style="color: #b6a0ff;">
+</span><span style="color: #989898;">options: html-scripts:nil html-style:t</span><span style="color: #b6a0ff;">
+</span><span style="color: #989898;">options: html5-fancy:t tex:t</span><span style="color: #b6a0ff;">
+</span><span style="color: #989898;">html_doctype: xhtml-strict</span><span style="color: #b6a0ff;">
+</span><span style="color: #989898;">html_container: div</span><span style="color: #b6a0ff;">
+</span><span style="color: #989898;">html_content_class: content</span><span style="color: #b6a0ff;">
+</span><span style="color: #989898;">description:</span><span style="color: #b6a0ff;">
+</span><span style="color: #989898;">keywords:</span><span style="color: #b6a0ff;">
+</span><span style="color: #989898;">html_mathjax:</span><span style="color: #b6a0ff;">
+</span><span style="color: #989898;">html_equation_reference_format: \eqref{%s}</span><span style="color: #b6a0ff;">
+</span><span style="color: #989898;">html_head_extra:</span><span style="color: #b6a0ff;">
+</span><span style="color: #989898;">subtitle:</span><span style="color: #c6daff;">
+</span><span style="color: #989898;">creator: &lt;a href="<a href="https://www.gnu.org/software/emacs/">https://www.gnu.org/software/emacs/</a>"&gt;Emacs&lt;/a&gt; 30.1 (&lt;a href="<a href="https://orgmode.org">https://orgmode.org</a>"&gt;Org&lt;/a&gt; mode 9.7.11)</span><span style="color: #b6a0ff;">
+</span><span style="color: #989898;">latex_header:</span>
 </pre>
 </div>
 
@@ -488,10 +488,10 @@ just read through Worg's tutorial:
 <li>org-templates/level-0.org</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-org" id="orga9b6d06"><span style="color: #989898;">setupfile: ./base.org</span>
-<span style="color: #989898;">html_link_home: index.html</span>
-<span style="color: #989898;">html_link_up: index.html</span>
-<span style="color: #989898;">html_head: &lt;link rel="stylesheet" type="text/css" href="css/stylesheet.css" /&gt;</span>
+<pre class="src src-org" id="org7497ee3"><span style="color: #989898;">setupfile: ./base.org</span><span style="color: #b6a0ff;">
+</span><span style="color: #989898;">html_link_home: index.html</span><span style="color: #b6a0ff;">
+</span><span style="color: #989898;">html_link_up: index.html</span><span style="color: #b6a0ff;">
+</span><span style="color: #989898;">html_head: &lt;link rel="stylesheet" type="text/css" href="css/stylesheet.css" /&gt;</span>
 </pre>
 </div>
 
@@ -499,22 +499,22 @@ just read through Worg's tutorial:
 <li>org-templates/level-1.org</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-org" id="org7f38795"><span style="color: #989898;">setupfile: ./base.org</span>
-<span style="color: #989898;">html_link_home: ../index.html</span>
-<span style="color: #989898;">html_link_up: ../index.html</span>
-<span style="color: #989898;">html_head: &lt;link rel="stylesheet" type="text/css" href="../css/stylesheet.css" /&gt;</span>
+<pre class="src src-org" id="org143a824"><span style="color: #989898;">setupfile: ./base.org</span><span style="color: #b6a0ff;">
+</span><span style="color: #989898;">html_link_home: ../index.html</span><span style="color: #b6a0ff;">
+</span><span style="color: #989898;">html_link_up: ../index.html</span><span style="color: #b6a0ff;">
+</span><span style="color: #989898;">html_head: &lt;link rel="stylesheet" type="text/css" href="../css/stylesheet.css" /&gt;</span>
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orgccacc5d" class="outline-3">
-<h3 id="orgccacc5d">Stylesheet</h3>
-<div class="outline-text-3" id="text-orgccacc5d">
+<div id="outline-container-org5761249" class="outline-3">
+<h3 id="org5761249">Stylesheet</h3>
+<div class="outline-text-3" id="text-org5761249">
 <ul class="org-ul">
 <li>src/css/stylesheet.css</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-css" id="orgce4ef23"><span style="color: #feacd0;">body</span> {
+<pre class="src src-css" id="orgcbc3dd3"><span style="color: #feacd0;">body</span> {
     <span style="color: #b6a0ff;">margin</span>: auto;
     <span style="color: #b6a0ff;">max-width</span>: 60em;
 }
@@ -528,7 +528,7 @@ just read through Worg's tutorial:
 <p class="date">Date: 2025-06-08 Sun 08:00</p>
 <p class="author">Author: saraced</p>
 <p class="email">Email: <a href="mailto:sarace@huisa.win">sarace@huisa.win</a></p>
-<p class="date">Created: 2025-06-08 Sun 17:55</p>
+<p class="date">Created: 2025-08-10 Sun 11:21</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.1 (<a href="https://orgmode.org">Org</a> mode 9.7.11)</p>
 </div>
 </body>

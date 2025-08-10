@@ -12,4 +12,4 @@ Programmer focus on mobile development. [[https://github.com/ttxs69][Github]]
 
 * Copyright
 
-[[https://creativecommons.org/licenses/by-nc-sa/4.0/][CC BY-NC-SA 4.0]]
+All blog posts of this blog are under [[https://creativecommons.org/licenses/by-nc-sa/4.0/][CC BY-NC-SA 4.0]] by default.
