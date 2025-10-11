@@ -1,0 +1,8 @@
+#+hugo_base_dir: ../
+
+* DONE My first post                                      :testTag:@category1:
+:PROPERTIES:
+:EXPORT_FILE_NAME: my-first-post
+:END:
+This is my post body
+
