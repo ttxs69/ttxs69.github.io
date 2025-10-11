@@ -110,6 +110,10 @@ params:
     keys: ["title", "permalink", "summary", "content"]
 menu:
   main:
+    - identifier: archives
+      name: archives
+      url: /archives/
+      weight: 10
     - identifier: categories
       name: categories
       url: /categories/
@@ -118,6 +122,11 @@ menu:
       name: tags
       url: /tags/
       weight: 20
+    - identifier: search
+      name: search
+      url: /search/
+      weight: 30
+
 
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
@@ -132,3 +141,14 @@ markup:
   goldmark:
     renderer:
       unsafe: true
+
+
+services:
+  rss:
+    limit: 42
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON # necessary for search
