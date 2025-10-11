@@ -1,8 +1,9 @@
 +++
 title = "My first post"
 author = ["saraced"]
-tags = ["tag1", "tag2", "testTag"]
-categories = ["cat1", "cat2", "category1"]
+date = 2025-10-11T16:15:00+08:00
+tags = ["testTag"]
+categories = ["category1"]
 draft = false
 +++
 

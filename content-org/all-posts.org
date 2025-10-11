@@ -1,6 +1,7 @@
 #+hugo_base_dir: ../
 
-* DONE My first post                                      :testTag:@category1:
+* DONE My first post                                   :testTag:@category1:
+CLOSED: [2025-10-11 Sat 16:15]
 :PROPERTIES:
 :EXPORT_FILE_NAME: my-first-post
 :END:
